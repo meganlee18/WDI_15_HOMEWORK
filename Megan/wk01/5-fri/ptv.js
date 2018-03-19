@@ -88,4 +88,7 @@ if (sourceLine == destinationLine) {
 }
 
 console.log(result)
+for (var count = 0; count <result.length; count++ ) {
+	console.log(count)
+}
 

@@ -1,0 +1,51 @@
+
+.container {
+	width: 900px;
+	border:1px solid red;
+}
+
+.logo {
+	text-align: center;
+
+}
+
+
+body {
+	background: url("file:///Users/megan/wdi/WDI_15_HOMEWORK/Megan/wk02/1-mon/ecardly_css/images/background.jpg");
+	position:absolute;
+	font-family: "Helvetica", sans-serif;
+	box-sizing: border-box;
+
+}
+
+section	{
+ 	display: block;
+ }
+
+.dot{
+    border-top: dotted 2px black;
+    border-bottom: 2px solid black;
+}
+
+main a {
+	color: #EA6913;
+	font-weight: bold;
+	text-decoration: none;
+}	
+
+
+.sidenav a {
+	display: block;
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+	line-height: 30px;
+
+
+}
+
+footer {
+	text-align: center;
+}
+
+/*background-image: url("file:///Users/megan/wdi/WDI_15_HOMEWORK/Megan/wk02/1-mon/ecardly_css/images/background.jpg");*/
