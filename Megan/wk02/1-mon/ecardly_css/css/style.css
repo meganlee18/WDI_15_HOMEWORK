@@ -1,26 +1,48 @@
 
+body {
+	background: url("../images/background.jpg");
+	background-color:#bfbfbf;
+	font-family: "Helvetica", sans-serif;
+	box-sizing: border-box;
+	background-repeat: repeat-x;
+
+}
+
+
+main {
+	background-color: white;
+	vertical-align: top;
+	display: inline-block;
+	width: 63%;
+	margin-right:5px;
+	padding: 8px;
+
+}
+
+main img {
+	width: 100%;
+}
+
+aside {
+	background-color: white;
+	display: inline-block;
+	vertical-align: top;
+	width: 30%;
+	list-style: none;
+	padding: 8px;
+	margin-left:3px;
+}
+
 .container {
-	width: 900px;
-	border:1px solid red;
+	width: 80%;
+	margin: 0 auto;
+	
 }
 
 .logo {
+	display: block;
 	text-align: center;
-
 }
-
-
-body {
-	background: url("file:///Users/megan/wdi/WDI_15_HOMEWORK/Megan/wk02/1-mon/ecardly_css/images/background.jpg");
-	position:absolute;
-	font-family: "Helvetica", sans-serif;
-	box-sizing: border-box;
-
-}
-
-section	{
- 	display: block;
- }
 
 .dot{
     border-top: dotted 2px black;
@@ -31,21 +53,13 @@ main a {
 	color: #EA6913;
 	font-weight: bold;
 	text-decoration: none;
-}	
-
-
-.sidenav a {
-	display: block;
-	text-decoration: none;
-	color: black;
-	font-weight: bold;
-	line-height: 30px;
-
-
 }
 
 footer {
 	text-align: center;
+	
 }
 
-/*background-image: url("file:///Users/megan/wdi/WDI_15_HOMEWORK/Megan/wk02/1-mon/ecardly_css/images/background.jpg");*/
+
+
+
