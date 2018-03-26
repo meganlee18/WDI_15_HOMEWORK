@@ -12,6 +12,7 @@ body {
 	color: black;
 	height: 109px;
 	font-size: 30px;
+	vertical-align: middle;
 
 }
 
@@ -19,7 +20,6 @@ body {
 	background-color:yellowgreen;
 	border: solid black 10px;
 	display: inline-block;
-	float: left;
 	width: 15%;
 	padding: 10px;
 	
@@ -29,12 +29,20 @@ body {
 	background-color:#034f84;
 	border: solid black 10px;
 	display: inline-block;
-	margin-top: 50px;
 	height:300px;
 	width: 25%;
-	padding: 10px;
+	vertical-align: top;
 	
 }
+
+.savingsresult {
+	font-size: 30px;
+}
+
+.checkingresult {
+	font-size: 30px;
+}
+
 
 .checking {
 	background-color:#034f84;
@@ -43,7 +51,7 @@ body {
 	margin-left: 120px;
 	height:300px;
 	width: 25%;
-	padding: 10px;
+	vertical-align: top;
 }
 
 input[type=text]{
@@ -51,4 +59,7 @@ input[type=text]{
 	border: solid black 3px;
 }
 
+.overdrawn {
+	background-color: red
+}
 /*#f18973*/

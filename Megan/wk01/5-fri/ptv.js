@@ -1,4 +1,4 @@
-console.log ('test s1')
+console.log ('test')
 
 
 /*
@@ -37,7 +37,38 @@ var allTrainLines = [alamein, glenWaverly, sandringham]
 
 var intersectionStation = 'Richmond'
 
+//Scenario One
+//If source station is 'Flinders'
+//Destination Station is "Glenferrie"
+alamein.join (" -> ")
 
+//Scenario Two
+//If source station is 'Flagstaff'
+//Destination station is 'Tooronga'
+glenWaverly.join(" -> ")
+
+//Senario Three
+//If source station is 'Sandringham'
+//Destination station is 'Windsor'
+sandringham.join(" -> ")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 var sourceStation = 'Flagstaff' //prompt ('Enter origin')
 var destinationStation = "Glenferrie" //prompt ('Enter destination')
 
@@ -92,3 +123,4 @@ for (var count = 0; count <result.length; count++ ) {
 	console.log(count)
 }
 
+*/

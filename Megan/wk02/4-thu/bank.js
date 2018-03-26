@@ -7,7 +7,6 @@
 //var deposit = function () {
 	//console.log('user click on deposit button');	
 
-
 //get the value from the input box - #todo
 
 //add value to balance and show in span - #todo
@@ -15,14 +14,76 @@
 //tell button to run a function on a click event
 //depositBtn.addEventListener('click', deposit)
 
+var savingsNumInput = document.querySelector('.savingsnum')
+var checkingNumInput = document.querySelector('.checkingnum')
 
-var savingsWithdrawBtn = document.getElementsByClassName("savingswithdraw")[0];
+var savingsWithdrawBtn = document.querySelector('.savingswithdrawbutton');
+var checkingWithdrawBtn = document.querySelector('.checkingwithdrawbutton');
 
-var savingsWithdraw = function () {
-	console.log("test")
-	debugger
-	document.getElementsByClassName("savingsDisplay")[0].innerHTML = "$00.00";
+var savingsDepositBtn = document.querySelector('.savingsdepositbutton');
+var checkingDepositBtn = document.querySelector('.checkingdepositbutton');
+
+var savingsResult = document.querySelector('.savingsresult');
+var checkingResult = document.querySelector('.checkingresult');
+
+
+//Savings
+//Adding initial value
+var savingsDeposit = function () {
+	var balance = Number((savingsNumInput.value))
+	console.log('total: ', balance);
+	savingsResult.textContent = balance;
 }
-savingsWithdrawBtn.addEventListener('click', savingsWithdraw);
+	//savingsDepositBtn.addEventListener('click', savingsDeposit);
+
+//Adding to NumInput	
+var addToSavingsDeposit = function () {
+	var balance = Number(savingsResult.textContent) + Number(savingsNumInput.value)
+		console.log('total: ', balance);
+		savingsResult.textContent = balance;
+	}
+	savingsDepositBtn.addEventListener('click', addToSavingsDeposit);
+
+//Subtracting from NumInput
+var subtractingSavingsDeposit = function () {
+	var balance = Number(savingsResult.textContent) - Number(savingsNumInput.value)
+		console.log('total: ', balance);
+		if (balance < 0) {
+			alert ("Uh-oh! You have insufficient funds");
+		} else {
+			savingsResult.textContent = balance;
+	}
+}
+	savingsWithdrawBtn.addEventListener('click', subtractingSavingsDeposit);
 
 
+
+
+//Deposit
+//Adding initial value
+var checkingDeposit = function () {
+	var balance = Number(checkingNumInput.value)
+		console.log('total: ', balance);
+		checkingResult.textContent = balance;
+	}
+	// checkingDepositBtn.addEventListener('click', checkingDeposit);
+
+//Adding to NumInput	
+var addToCheckingDeposit = function () {
+	var balance = Number(checkingResult.textContent) + Number(checkingNumInput.value)
+		console.log('total: ', balance);
+		checkingResult.textContent = balance;
+	}
+	checkingDepositBtn.addEventListener('click', addToCheckingDeposit);
+
+//Subtracting from NumInput
+var subtractingCheckingDeposit = function () {
+	var balance = Number(checkingResult.textContent) - Number(checkingNumInput.value)
+	console.log('total: ', balance);
+	if (balance < 0) {
+		alert ("Uh-oh! You have insufficient funds");
+	} else {
+		checkingResult.textContent = balance;
+	}
+}		
+	checkingWithdrawBtn.addEventListener('click', subtractingCheckingDeposit);
