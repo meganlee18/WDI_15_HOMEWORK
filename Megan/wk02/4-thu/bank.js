@@ -41,7 +41,18 @@ var addToSavingsDeposit = function () {
 	var balance = Number(savingsResult.textContent) + Number(savingsNumInput.value)
 		console.log('total: ', balance);
 		savingsResult.textContent = balance;
-	}
+		
+		var savings = document.querySelector('.savings');	
+		var overdrawn = function () {
+				if (balance <= 0) {
+					savings.classList.add('overdrawn');
+				} else {
+					savings.classList.remove('overdrawn');
+				}
+			}
+			savings.addEventListener('click', overdrawn);
+		}
+		
 	savingsDepositBtn.addEventListener('click', addToSavingsDeposit);
 
 //Subtracting from NumInput
@@ -52,11 +63,19 @@ var subtractingSavingsDeposit = function () {
 			alert ("Uh-oh! You have insufficient funds");
 		} else {
 			savingsResult.textContent = balance;
+	
+	var savings = document.querySelector('.savings');	
+	var overdrawn = function () {
+			if (balance <= 0) {
+				savings.classList.add('overdrawn');
+			} else {
+				savings.classList.remove('overdrawn');
+			}
+		}
+		savings.addEventListener('click', overdrawn);
 	}
 }
 	savingsWithdrawBtn.addEventListener('click', subtractingSavingsDeposit);
-
-
 
 
 //Deposit
@@ -73,7 +92,18 @@ var addToCheckingDeposit = function () {
 	var balance = Number(checkingResult.textContent) + Number(checkingNumInput.value)
 		console.log('total: ', balance);
 		checkingResult.textContent = balance;
-	}
+
+		var checking = document.querySelector('.checking');	
+		var overdrawn = function () {
+				if (balance <= 0) {
+					checking.classList.add('overdrawn');
+				} else {
+					checking.classList.remove('overdrawn');
+				}
+			}
+			checking.addEventListener('click', overdrawn);
+		}
+	
 	checkingDepositBtn.addEventListener('click', addToCheckingDeposit);
 
 //Subtracting from NumInput
@@ -84,6 +114,16 @@ var subtractingCheckingDeposit = function () {
 		alert ("Uh-oh! You have insufficient funds");
 	} else {
 		checkingResult.textContent = balance;
+	
+	var checking = document.querySelector('.checking');	
+	var overdrawn = function () {
+			if (balance <= 0) {
+				checking.classList.add('overdrawn');
+			} else {
+				checking.classList.remove('overdrawn');
+			}
+		}
+		checking.addEventListener('click', overdrawn);
 	}
 }		
 	checkingWithdrawBtn.addEventListener('click', subtractingCheckingDeposit);
