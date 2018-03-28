@@ -59,7 +59,14 @@ input[type=text]{
 	border: solid black 3px;
 }
 
-.overdrawn {
-	background-color: red
+.dollar {
+	font-size: 20px;
 }
+
+
+.overdrawn {
+	background-color: #8B0000
+}
+
+
 /*#f18973*/

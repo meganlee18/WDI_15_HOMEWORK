@@ -60,7 +60,7 @@ var subtractingSavingsDeposit = function () {
 	var balance = Number(savingsResult.textContent) - Number(savingsNumInput.value)
 		console.log('total: ', balance);
 		if (balance < 0) {
-			alert ("Uh-oh! You have insufficient funds");
+			alert ("Uh-oh! You have insufficient funds...");
 		} else {
 			savingsResult.textContent = balance;
 	
@@ -111,7 +111,7 @@ var subtractingCheckingDeposit = function () {
 	var balance = Number(checkingResult.textContent) - Number(checkingNumInput.value)
 	console.log('total: ', balance);
 	if (balance < 0) {
-		alert ("Uh-oh! You have insufficient funds");
+		alert ("Uh-oh! You have insufficient funds...");
 	} else {
 		checkingResult.textContent = balance;
 	
