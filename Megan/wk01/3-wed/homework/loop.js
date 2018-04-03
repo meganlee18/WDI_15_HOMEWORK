@@ -1,5 +1,3 @@
-Homework
-
 //Write a for loop that will iterate from 0 to 20. For each iteration, it will 
 //check if the current number is even or odd, and report that to the screen 
 //(e.g. "2 is even").
@@ -29,3 +27,13 @@ for (var count = 0; count <= 10; count++) {
 	console.log (count + " * 9 = " + result);
 }
 
+
+// Create an array to hold your top choices (colors, presidents, whatever).
+// For each choice, log to the screen a string like: "My #1 choice is blue."
+
+var topChoices = ['blue', 'flowers', 'Ferrari', 'money']
+
+for (var i = 0; i < topChoices.length; i++) {
+	var result = topChoices[i]
+	console.log('My #1 choice is' + ' ' + result);
+}
