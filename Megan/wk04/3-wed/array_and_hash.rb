@@ -1,13 +1,15 @@
 # Array and Hash access
 
 # Question A. Given the following data structure:
+require 'pry'
 
 a = ["Anil", "Erik", "Jonathan"]
 # How would you return the string "Erik"?
 a[1]
 
 # How would you add your name to the array?
-a.push("Megan")
+a.push 'Megan' #or
+a << 'Megan'
 
 # B. Given the following data structure:
 h = {
@@ -28,6 +30,9 @@ h["two"]
 
 # How would you add {3 => "Three"} to the hash?
 h.merge({3 => "Three"})
+
+#Second Method
+h[3] = "Three"
 
 # How would you add {:four => 4} to the hash?
 h2 = h.merge({3 => "Three"})
@@ -86,11 +91,17 @@ hash = {
 
 users.merge(hash)
 
+#second method
+users['Megan'] = {:twitter => 'meganlee', :favorite_numbers => [1, 2, 3]}
+
 # How would you return the array of Erik's favorite numbers?
 users["Erik"][:favorite_numbers]
 
 # How would you return the smallest of Erik's favorite numbers?
 users["Erik"][:favorite_numbers].sort.first
+
+#Second Method
+users["Erik"][:favorite_numbers].min
 
 # How would you return an array of Anil's favorite numbers that are also even?
 
@@ -98,19 +109,33 @@ even_array = []
 anil_favorite_numbers = users["Anil"][:favorite_numbers]
 anil_favorite_numbers.each do |x|
   if x % 2 == 0
+    #second method: num.even?
     even_array.push(x)
   end
+  # third method:
+  # users['Anil'][:favorite_numbers].select do |num|
+  #  num.even?
+  # end
+  # OR can be written as:
+  # users['Anil'][:favorite_numbers].select {|num| num.even?}
 end
 even_array
 
 # How would you return an array of the favorite numbers common to all users?
+  #Find number only three of them has e.g 12
 erik = users["Erik"][:favorite_numbers]
 jonathan = users["Jonathan"][:favorite_numbers]
 anil = users["Anil"][:favorite_numbers]
 
+#Finding the intersection
+erik & jonathan & anil
+
+#Adding them up
 all = erik.concat(jonathan).concat(anil)
+
+#Differences
+# erik - jonathan
 
 
 # How would you return an array containing all users' favorite numbers, sorted, and excluding duplicates?
-
 all.sort.uniq

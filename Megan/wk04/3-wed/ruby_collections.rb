@@ -55,7 +55,8 @@
     # Select all elements in heroes that begin with "B" using a method. The Ruby documentation might help.
 
     # Your answer here
-   heroes.select {|v| v.start_with?("B")}
+   heroes.select do |v| v.start_with?("B")
+   end
 
 
 #Hashes

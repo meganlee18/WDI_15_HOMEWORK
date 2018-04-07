@@ -31,9 +31,9 @@ for (var count = 0; count <= 10; count++) {
 // Create an array to hold your top choices (colors, presidents, whatever).
 // For each choice, log to the screen a string like: "My #1 choice is blue."
 
-var topChoices = ['blue', 'flowers', 'Ferrari', 'money']
+var topChoices = ['blue', 'flowers', 'Ferrari', 'money','more money']
 
-for (var i = 0; i < topChoices.length; i++) {
+for (var i = 1; i < topChoices.length; i++) {
 	var result = topChoices[i]
-	console.log('My #1 choice is' + ' ' + result);
+	console.log('My #' + i + ' choice is' + ' ' + result);
 }
