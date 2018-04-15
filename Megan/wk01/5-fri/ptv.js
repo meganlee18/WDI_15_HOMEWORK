@@ -96,6 +96,6 @@ function checkArrow(element) {
 
 var trainStops = trainLines.filter(checkArrow);
 
-for (var count = 0; count < trainStops.length + 1; count++) {
+for (var count = 0; count < trainStops.length; count++) {
 }
 console.log("This route has " + count + " stops in total")
