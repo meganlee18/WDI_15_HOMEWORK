@@ -1,6 +1,3 @@
-console.log ('test')
-
-
 /*
 
 The Alamein line has the following stops: 
@@ -14,7 +11,6 @@ Southern Cross, Richmond, South Yarra, Prahran, and Windsor.
 
 */
 
-//Prompt appears - prompt function
 //User enters origin 
 //User enters destination
 //find the route from origin to destination
@@ -23,66 +19,33 @@ Southern Cross, Richmond, South Yarra, Prahran, and Windsor.
 //  * set var intersectionStation = Richmond
 // 	* Check if source and destination line are the same
 // 		** If same, then print line starting from origin to destination
-//		** If different, print source line from origin to intersctionStation
+//		** If different, print source line from origin to intersectionStation
 //		   then print from intersectionStation to destination
 //show the no. of stops between origin and destination
-//create loop to allow prompt to pop up
-//Bonus: Create
+
 
 var alamein = ['Flinders', 'Richmond', 'East Richmond', 'Burnley', 'Hawthorn', 'Glenferrie']
-var glenWaverly = ['Flagstaff', 'Melbourne Central', 'Parliament', 'Richmond', 'Kooyong','Tooronga']
-var sandringham = ['Southern Cross', 'Richmond', 'South Yarra','Prahran', 'Windsor']
+var glenWaverly = ['Flagstaff', 'Melbourne Central', 'Parliament', 'Richmond', 'Kooyong', 'Tooronga']
+var sandringham = ['Southern Cross', 'Richmond', 'South Yarra', 'Prahran', 'Windsor']
 
-var allTrainLines = [alamein, glenWaverly, sandringham] 
+var allTrainLines = [alamein, glenWaverly, sandringham]
 
 var intersectionStation = 'Richmond'
 
-//Scenario One
-//If source station is 'Flinders'
-//Destination Station is "Glenferrie"
-alamein.join (" -> ")
-
-//Scenario Two
-//If source station is 'Flagstaff'
-//Destination station is 'Tooronga'
-glenWaverly.join(" -> ")
-
-//Senario Three
-//If source station is 'Sandringham'
-//Destination station is 'Windsor'
-sandringham.join(" -> ")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-var sourceStation = 'Flagstaff' //prompt ('Enter origin')
-var destinationStation = "Glenferrie" //prompt ('Enter destination')
+var sourceStation = prompt("Where are you travelling from?")
+var destinationStation = prompt("Where are you going to?")
 
 var sourceLine = undefined
 var destinationLine = undefined
 
-for(var i = 0; i < allTrainLines.length; i++ ) {
+for (var i = 0; i < allTrainLines.length; i++) {
 	// Find the train line where the source station is
-	if(allTrainLines[i].indexOf(sourceStation) > -1  ) {
+	if (allTrainLines[i].indexOf(sourceStation) > -1) {
 		sourceLine = allTrainLines[i]
 	}
 
 	// Find the train line where the destination station is
-	if (allTrainLines[i].indexOf(destinationStation) > -1 ) {
+	if (allTrainLines[i].indexOf(destinationStation) > -1) {
 		destinationLine = allTrainLines[i]
 	}
 
@@ -92,26 +55,28 @@ for(var i = 0; i < allTrainLines.length; i++ ) {
 var sourceStationIndex = sourceLine.indexOf(sourceStation)
 var destinationStationIndex = destinationLine.indexOf(destinationStation)
 var result = ""
+
 if (sourceLine == destinationLine) {
 	// Both source and destination stations are on the same train line
-	for(var i = sourceStationIndex; i<=destinationStationIndex; i++) {
-			result += sourceLine[i] //result = result + sourceLine[i]
-			if (i != destinationStationIndex) {
-				result += " -> "
-			} 
+	for (var i = sourceStationIndex; i <= destinationStationIndex; i++) {
+		result += sourceLine[i] //result = result + sourceLine[i]
+		if (i != destinationStationIndex) {
+			result += " -> "
+		}
 	}
 } else {
 	// Both source and destination stations are on different train lines
 	// Source Station -> Intersection Station -> Destination station
 	var sourceIntersectionIndex = sourceLine.indexOf(intersectionStation)
 	var destinationIntersectionIndex = destinationLine.indexOf(intersectionStation)
-	for(var i =sourceStationIndex; i<=sourceIntersectionIndex; i++) {
+
+	for (var i = sourceStationIndex; i <= sourceIntersectionIndex; i++) {
 		result += sourceLine[i] + " -> "
 	}
 
 	//+1 is necessary so that intersection doesn't print twice during the journey
-	for(var i=destinationIntersectionIndex+1; i<=destinationStationIndex; i++) {
-		result += destinationLine[i] 
+	for (var i = destinationIntersectionIndex + 1; i <= destinationStationIndex; i++) {
+		result += destinationLine[i]
 		if (i != destinationStationIndex) {
 			result += " -> "
 		}
@@ -119,8 +84,18 @@ if (sourceLine == destinationLine) {
 }
 
 console.log(result)
-for (var count = 0; count <result.length; count++ ) {
-	console.log(count)
+
+//Now to count the number of stops in the route
+//change strings to array
+var trainLines = result.split(" ")
+
+//check and filter out arrows so only stops remain in array
+function checkArrow(element) {
+	return element === "->";
 }
 
-*/
+var trainStops = trainLines.filter(checkArrow);
+
+for (var count = 0; count < trainStops.length + 1; count++) {
+}
+console.log("This route has " + count + " stops in total")
