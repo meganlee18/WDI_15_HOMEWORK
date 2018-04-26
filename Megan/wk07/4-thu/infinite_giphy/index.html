@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>Find your Giphy!</h1>
+  <form class="search-form" action="">
+    <input class="input" type="text">
+    <button>Search</button>
+  </form>
+
+  <div class='results'>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script>
+
+
+    var searchForm = document.querySelector('.search-form');
+    var input = document.querySelector('.input');
+    var resultsDiv = document.querySelector('.results')
+    var offSet = 0
+
+    //fetch all the pictures from Giphy first time
+    var showResults = function (res) {
+      res.data.forEach(function (element) {
+        console.log(element.images.original_still.url);
+
+        //Create photos and append them to the page
+        var newElem = document.createElement('IMG');
+        newElem.setAttribute("src", element.images.original_still.url);
+
+        resultsDiv.appendChild(newElem);
+      });
+    }
+
+    var getOptions = function () {
+      return {
+        url: "https://api.giphy.com/v1/gifs/search?api_key=GvJ8TKBeEBZX4S9GvZg0qCcFGrlNtc0Z&q=" + input.value + "&limit=10&offset=" + offSet + "&rating=G&lang=en"
+      }
+    }
+
+
+    //create event target
+    //on click, prevent page from refreshing and log input
+    searchForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      console.log(input.value)
+
+      //then fetch pictures from Giphy
+      $.ajax(getOptions()).done(showResults)
+
+    });
+
+    //scrolling to add more photos
+    window.onscroll = function (ev) {
+
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        console.log("fetching more photos!!")
+        // you're at the bottom of the page
+        offSet = offSet + 10
+        //fetch pictures from Giphy second time
+        $.ajax(getOptions()).done(showResults)
+      }
+    };
+
+  </script>
+</body>
+
+</html>
