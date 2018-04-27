@@ -32,11 +32,11 @@
     //fetch all the pictures from Giphy first time
     var showResults = function (res) {
       res.data.forEach(function (element) {
-        console.log(element.images.original_still.url);
+        console.log(element.images.original.url);
 
         //Create photos and append them to the page
         var newElem = document.createElement('IMG');
-        newElem.setAttribute("src", element.images.original_still.url);
+        newElem.setAttribute("src", element.images.original.url);
 
         resultsDiv.appendChild(newElem);
       });
