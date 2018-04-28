@@ -45,12 +45,21 @@ optionFive.setAttribute('class', 'sydney');
 
 //define change background function
 function changeBackground() {
-  var getValue = document.getElementById("city-type").value;
-  cityType.options[cityType.selectedIndex].style.backgroundImage = "url('../images/austin.jpg')"
-  console.log("background changed!");
+  if (document.querySelector(".austin").selected == true) {
+    document.body.setAttribute('class', 'austin')
+  } else if (document.querySelector(".la").selected == true) {
+    document.body.setAttribute('class', 'la')
+  } else if (document.querySelector(".nyc").selected == true) {
+    document.body.setAttribute('class', 'nyc')
+  } else if (document.querySelector(".sf").selected == true) {
+    document.body.setAttribute('class', 'sf')
+  } else {
+    (document.querySelector(".sydney").selected == true)
+    document.body.setAttribute('class', 'sydney')
+  }
 }
 
-//add onchange function to cityType
+//Apply onchange function to cityType
 document.getElementById("city-type").onchange = function() {
   changeBackground();
 };
