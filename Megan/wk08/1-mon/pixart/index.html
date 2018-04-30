@@ -22,8 +22,19 @@
     var colorBtn = document.querySelector(".color-btn")
     var brushBox = document.querySelector(".brushbox");
 
+// create 100 divs with the "square" class
+    for (var i = 0; i <100; i++) {
+      var pixel = document.createElement("div"); 
+      pixel.setAttribute('class', 'square');
+      pixel.style.cssText = 'width:20px;height:20px';
+      document.body.appendChild(pixel);
+      console.log("Divs created")
+    }
 
-    //click button function
+
+
+
+//click button function
       //prevent default
       //change brush box to the color specified in input field
       //should work with enter key and button click

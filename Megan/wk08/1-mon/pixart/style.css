@@ -3,3 +3,7 @@ body div {
   width: 30px;
   height: 30px;
 }
+
+.square {
+  display: inline-block;
+}
