@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Big Pixel Art</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Big Pixel Art</h1>
+  
+  <form class="form" action="">
+    <input type="text" name="content" id="input">
+    <button class="color-btn">Set Color</button>
+  </form>
+  <div class="brushbox">
+  </div>
+  
+  <script>
+    
+    var colorBtn = document.querySelector(".color-btn")
+    var brushBox = document.querySelector(".brushbox");
+
+
+    //click button function
+           //onclick, what happens?
+           //prevent default
+           //change brush box to purple
+    colorBtn.addEventListener("click", function(){
+      brushBox.style.backgroundColor = input.value;
+      console.log(input.value)
+      event.preventDefault()
+      console.log("Page refreshed!")
+    });
+
+ 
+    
+
+    
+
+
+  
+
+  </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</body>
+</html>
