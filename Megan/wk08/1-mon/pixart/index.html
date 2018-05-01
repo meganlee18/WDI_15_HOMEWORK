@@ -25,17 +25,17 @@
 
 //function for changing color
 var changeColor = function(event){
-  event.target.style.backgroundColor = "green";
+  event.target.style.backgroundColor = input.value;
 }
 
 // create 100 divs with the "square" class
-//click on each square, it should change to specified colour
-    for (var i = 0; i <100; i++) {
+//hover mouse over each square, it should change to specified colour
+    for (var i = 0; i <1000; i++) {
       var pixel = document.createElement("div"); 
       pixel.setAttribute('class', 'square');
       pixel.style.cssText = 'width:20px;height:20px';
       document.body.appendChild(pixel);
-      pixel.addEventListener("click", changeColor);
+      pixel.addEventListener("mouseover", changeColor);
     }
 
 //click button function
