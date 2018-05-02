@@ -1,57 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Big Pixel Art</title>
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Tamma" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <h1>Big Pixel Art</h1>
-  
+
   <form class="form" action="">
     <input type="text" name="content" id="input">
     <button class="color-btn">Set Color</button>
+    <button class="reset-btn">Reset</button>
   </form>
+
+  <form class="movie" action="">
+    <input type="text" name="name" id="movie">
+    <button class="movie-btn">Type a movie name</button>
+  </form>
+
   <div class="brushbox">
   </div>
-  
+
+  <div class="container">
+  </div>
   <script>
-    
+
     var colorBtn = document.querySelector(".color-btn")
+    var resetBtn = document.querySelector(".reset-btn")
+    var movieBtn = document.querySelector(".movie-btn")
     var brushBox = document.querySelector(".brushbox");
     var square = document.querySelector(".square")
-
-//function for changing color
-var changeColor = function(event){
-  event.target.style.backgroundColor = input.value;
-}
-
-// create 100 divs with the "square" class
-//hover mouse over each square, it should change to specified colour
-    for (var i = 0; i <1000; i++) {
-      var pixel = document.createElement("div"); 
+    var container = document.querySelector(".container")
+    
+    var changeColor = function (event) {
+      event.target.style.backgroundColor = brushBox.style.backgroundColor;
+    }
+    
+    //create 100 divs with the "square" class
+    //hover mouse over each square, it should change to specified colour
+    for (var i = 0; i < 1020; i++) {
+      var pixel = document.createElement("div");
       pixel.setAttribute('class', 'square');
       pixel.style.cssText = 'width:20px;height:20px';
-      document.body.appendChild(pixel);
+      container.appendChild(pixel);
+      //This should only run after the colour is inserted in input field
+      //function for changing color
       pixel.addEventListener("mouseover", changeColor);
     }
-
-//click button function
-      //prevent default
-      //change brush box to the color specified in input field
-      //should work with enter key and button click
-    colorBtn.addEventListener("click", function(){
+ 
+    
+    //click color button function
+    //prevent default
+    //change brush box to the color specified in input field
+    //should work with enter key and button click
+    colorBtn.addEventListener("click", function () {
       brushBox.style.backgroundColor = input.value;
       console.log(input.value)
       event.preventDefault()
       console.log("Page refreshed!")
     });
 
-  
+    //reset button function
+    resetBtn.addEventListener("click", function () {
+      pixel.style.backgroundColor = "white";
+    });
+
+
+    //click movie button function
+    movieBtn.addEventListener("click", function () {
+      event.preventDefault()
+      console.log(movie.value)
+      
+      var options = {
+        url: 'http://www.omdbapi.com/?t=' + movie.value + '&apikey=2f6435d9'
+      }
+      var showResults = function (res) {
+        console.log(res.Poster);
+        
+        //Change background image to poster image (as specified in movie input)
+        container.style.backgroundImage = "url(" + res.Poster + ")";
+      }
+      $.ajax(options).done(showResults)
+    });
 
   </script>
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 </body>
+
 </html>

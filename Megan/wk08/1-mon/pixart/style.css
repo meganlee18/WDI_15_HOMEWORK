@@ -1,9 +1,35 @@
-body div {
+body {
+  text-align: center;
+  margin: 0 auto;
+  background-color:#fefbd8
+}
+
+body h1 {
+  font-family: 'Baloo Tamma', cursive;
+  font-size: 80px;
+  margin-bottom: 0;
+}
+
+.brushbox {
   border: 2px solid black;
-  width: 30px;
-  height: 30px;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  margin-bottom: 20px;
 }
 
 .square {
   display: inline-block;
+  border: 2px solid black;
+}
+
+.container {
+  width: 50%;
+  margin: 0 auto;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+#movie {
+  margin-bottom: 20px;
 }
