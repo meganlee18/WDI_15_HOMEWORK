@@ -30,6 +30,10 @@ body h1 {
   background-repeat: no-repeat;
 }
 
+.square {
+  color:red;
+}
+
 #movie {
   margin-bottom: 20px;
 }
