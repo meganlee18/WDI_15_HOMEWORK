@@ -21,7 +21,7 @@
 
   <form class="movie" action="">
     <input type="text" name="name" id="movie">
-    <button class="movie-btn">Type a movie name</button>
+    <button class="movie-btn">Set a movie name</button>
   </form>
 
   <div class="brushbox">
@@ -37,11 +37,11 @@
     var brushBox = document.querySelector(".brushbox");
     var square = document.querySelector(".square")
     var container = document.querySelector(".container")
-    
+
     var changeColor = function (event) {
       event.target.style.backgroundColor = brushBox.style.backgroundColor;
     }
-    
+
     //create 100 divs with the "square" class
     //hover mouse over each square, it should change to specified colour
     for (var i = 0; i < 1020; i++) {
@@ -53,8 +53,8 @@
       //function for changing color
       pixel.addEventListener("mouseover", changeColor);
     }
- 
-    
+
+
     //click color button function
     //prevent default
     //change brush box to the color specified in input field
@@ -66,29 +66,35 @@
       console.log("Page refreshed!")
     });
 
-    //reset button function
-    resetBtn.addEventListener("click", function () {
-      console.log("Page refreshed!")
-      pixel.style.backgroundColor = "#fefbd8";
-      container.style.backgroundImage = "";
-    });
-
 
     //click movie button function
     movieBtn.addEventListener("click", function () {
       event.preventDefault()
       console.log(movie.value)
-      
+
       var options = {
         url: 'http://www.omdbapi.com/?t=' + movie.value + '&apikey=2f6435d9'
       }
       var showResults = function (res) {
         console.log(res.Poster);
-        
+
         //Change background image to poster image (as specified in movie input)
         container.style.backgroundImage = "url(" + res.Poster + ")";
       }
       $.ajax(options).done(showResults)
+    });
+
+    //reset button function
+    resetBtn.addEventListener("click", function () {
+      event.preventDefault()
+      console.log("Page refreshed!")
+      container.style.backgroundImage = "";
+      brushBox.style.backgroundColor = "transparent";
+      input.value = "";
+      movie.value = "";
+      document.querySelectorAll('.square').forEach(function (square) {
+        square.style.backgroundColor = "transparent";
+      })
     });
 
   </script>
