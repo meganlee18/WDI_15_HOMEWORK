@@ -1,7 +1,24 @@
 <h1>Rock Paper Scissors</h1>
 
 <h2>Instructions on how to play the game</h2>
+<p>In rock-paper-scissors, two players will each randomly choose one of three hand signs: rock, paper, or scissors. Both players show their signs at the same time to see who will win.</p>
+<p>Rock wins over scissors, Scissors wins over paper and Paper wins over rock.</p>
+<p>If both players show the same sign, it’s a tie.</p>
 
+<form action="/games/rock_paper_scissors/:throw">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="">Enter your choice of scissors, paper or rock!</label>
+  <input type="text" name="throw">
+  <button>Throw!</button>
+</form>
+
+
+
+
+
+<%# 
 <p>Create a route that goes from /games/rock_paper_scissors/:throw to games#rock_paper_scissors_play</p>
 <p>Use params[:throw] as the user's choice</p>
-<p>Compare the 2!</p>
+<p>Compare the 2!</p> %>
+
+
