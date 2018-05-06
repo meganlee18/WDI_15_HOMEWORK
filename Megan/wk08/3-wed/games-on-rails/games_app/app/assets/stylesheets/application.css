@@ -16,6 +16,12 @@
 
 body {
   padding: 10px;
+  font-family: 'McLaren', cursive;
+  background-color: papayawhip;
+}
+
+h1 {
+  font-family: 'Bungee Inline', cursive;
 }
 
 form input {
