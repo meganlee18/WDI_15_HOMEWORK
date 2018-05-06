@@ -22,14 +22,23 @@ class GamesController < ApplicationController
   end
 
   def rock_paper_scissors
-    @user_choices = ["scissors", "rock", "paper"]
-    #Where does the computer make its choice?
-    @computer_choices = ["scissors", "rock", "paper"]
   end
 
   def rock_paper_scissors_play
-    if params[:throw] == "scissors" #&& @computer_choices == "scissors"
-      @results = "It's a tie!"
+    @choices = ["scissors", "rock", "paper"].shuffle.first
+
+    if params[:throw] == @choices
+      @result = "It's a draw!"
+    elsif params[:throw] == "scissors" && @choices == "rock"
+      @result = "Oops you got crushed!"
+    elsif params[:throw] == "scissors" && @choices == "paper"
+      @result = "Nice"
+    elsif params[:throw] == "rock" && @choices == "paper"
+      @result = "Oops you got smothered!"
+    elsif params[:throw] == "paper" && @choices == "scissors"
+      @result = "Oops you got cut!"
+    else
+      @result = "Well done, you crushed the computer!"
     end
   end
 end
