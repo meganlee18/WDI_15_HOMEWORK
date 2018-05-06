@@ -11,7 +11,14 @@ class GamesController < ApplicationController
   end
 
   def secret_number
-    @number = 
+    correct_guess = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"].sample
+    if params[:number] == correct_guess
+      @guess = "Well done! Your guess is correct"
+    elsif params[:number].blank?
+      @guess = "C'mon, give me a number..."
+    else
+      @guess = "Oops, try again..."
+    end
   end
 
   def rock_paper_scissors
