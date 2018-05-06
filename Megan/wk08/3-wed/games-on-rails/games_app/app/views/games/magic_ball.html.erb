@@ -2,3 +2,12 @@
 
 <h2>Instructions for playing this game</h2>
 <p>Takes user's questions and returns an eerily prescient answer.</p>
+
+<form action="">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="">Ask a question!</label>
+  <input type="text" name="question">
+  <button>See prediction</button>
+</form>
+
+<h3>Magic Ball says: <%= @answers %></h3>
