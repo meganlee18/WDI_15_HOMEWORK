@@ -5,20 +5,19 @@
 <p>Rock wins over scissors, Scissors wins over paper and Paper wins over rock.</p>
 <p>If both players show the same sign, it’s a tie.</p>
 
-<form action='/games/rock_paper_scissors/:throw' >
-<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<form action='/games/rock_paper_scissors/throw' >
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <label for="">Choose scissors, paper or rock!</label>
   <input name='throw' type="submit" value="rock">
-  <input name='throw' type="submit" value="scissors">
-  <input name='throw' type="submit" value="paper">
-
 </form>
 
+<form action='/games/rock_paper_scissors/throw' >
+  <input name='throw' type="submit" value="scissors">
+</form>
 
+<form action='/games/rock_paper_scissors/throw' >
+  <input name='throw' type="submit" value="paper">
+</form>
 
-<%# 
-<p>Create a route that goes from /games/rock_paper_scissors/:throw to games#rock_paper_scissors_play</p>
-<p>Use params[:throw] as the user's choice</p>
-<p>Compare the 2!</p> %>
-
+<a href ="/">Go back to main menu</a>
 

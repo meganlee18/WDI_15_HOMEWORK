@@ -17,7 +17,7 @@ class GamesController < ApplicationController
     elsif params[:number].blank?
       @guess = "C'mon, give me a number between 1 to 10"
     else
-      @guess = "Oops, not so lucky this time! The correct number is " + @possible_guess
+      @guess = "Oops, not so lucky this time! The secret number is " + @possible_guess
     end
   end
 
@@ -29,16 +29,14 @@ class GamesController < ApplicationController
 
     if params[:throw] == @choices
       @result = "It's a draw!"
-    elsif params[:throw] == "scissors" && @choices == "rock"
-      @result = "Oops you got crushed!"
-    elsif params[:throw] == "scissors" && @choices == "paper"
-      @result = "Nice"
     elsif params[:throw] == "rock" && @choices == "paper"
-      @result = "Oops you got smothered!"
+      @result = "Oops you lost to " + @choices
+    elsif params[:throw] == "scissors" && @choices == "rock"
+      @result = "Oops you got crushed by " + @choices
     elsif params[:throw] == "paper" && @choices == "scissors"
-      @result = "Oops you got cut!"
+      @result = "Oops you got cut by " + @choices
     else
-      @result = "Well done, you crushed the computer!"
+      @result = "Well done, you smashed " + @choices
     end
   end
 end
