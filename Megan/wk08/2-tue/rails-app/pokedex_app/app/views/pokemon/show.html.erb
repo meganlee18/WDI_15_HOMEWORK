@@ -1,24 +1,13 @@
-
-<h1>Welcome to Pokedex</h1>
-
-<h2>...save your pokemons here and never fear they get lost again.</h2>
-
-<form action="/pokemon/create" method="post">
+<form action="" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <p>Caught a new Pokemon? Add it to Pokedex!</p>
+    <input type="hidden" name="_method" value="update">
   <label for="">Nickname</label>
-  <input type="text" name="name" value="">
+  <input type="text" name="name" value="<%=%>">
   <label for="">Species</label>
   <input type="text" name="species" value="">
   <label for="">Level</label>
   <input type="text" name="level" value="">
   <label for="">Pokedex Number</label>
   <input type="text" name="pokedex" value="">
-  <button>Add Pokemon</button>
+  <button>Update</button>
 </form>
-
-<div class="view-pokedex">
-<a href="/pokemon">View Pokedex</a>
-</div>
-
-

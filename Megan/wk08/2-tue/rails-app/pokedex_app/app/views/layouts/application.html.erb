@@ -7,9 +7,13 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
   </head>
 
   <body>
+    <div class="logo">
+    <%= image_tag("Pokemon_logo.png", size: "500x200") %>
+  </div>
     <%= yield %>
   </body>
 </html>
