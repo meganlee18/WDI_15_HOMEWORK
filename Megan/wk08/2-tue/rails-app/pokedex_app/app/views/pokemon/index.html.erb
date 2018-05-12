@@ -6,15 +6,18 @@
 <form action="/pokemon/create" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <p>Caught a new Pokemon? Add it to Pokedex!</p>
-  <label for="">Nickname</label>
-  <input type="text" name="name" value="">
-  <label for="">Species</label>
-  <input type="text" name="species" value="">
-  <label for="">Level</label>
-  <input type="text" name="level" value="">
-  <label for="">Pokedex Number</label>
-  <input type="text" name="pokedex" value="">
-  <button>Add Pokemon</button>
+  <div class = "add-pokedex-form">
+    <label for="">Nickname</label>
+    <input type="text" name="name" value=""><br/>
+    <label for="">Species</label>
+    <input type="text" name="species" value=""><br/>
+    <label for="">Level</label>
+    <input type="text" name="level" value=""><br/>
+    <label for="">Pokedex Number</label>
+    <input type="text" name="pokedex" value=""><br/>
+    <button>Add Pokemon</button>
+  </div>
+ 
 </form>
 
 <div class="view-pokedex">

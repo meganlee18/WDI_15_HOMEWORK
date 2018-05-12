@@ -4,7 +4,6 @@ class PokemonController < ApplicationController
 
   def home
     @pokemon = Pokemon.all
-    #redirect_to "/pokemon/#{pokemon.id}/edit"
   end
 
   def create
@@ -18,13 +17,13 @@ class PokemonController < ApplicationController
   end
 
   def destroy
-    #@pokemon = Pokemon.find(params[:id])
-    #@pokemon.destroy
-    redirect_to "/"
+    @pokemon = Pokemon.find(params[:id])
+    @pokemon.destroy
+    redirect_to "/pokemon"
   end
 
   def edit
-    #@pokemon = Pokemon.find(params[:id])
+    pokemon = Pokemon.find(params[:id])
     pokemon.nickname = params[:name]
     pokemon.species = params[:species]
     pokemon.level = params[:level]
@@ -34,5 +33,6 @@ class PokemonController < ApplicationController
   end
 
   def show
+    @pokemon = Pokemon.all
   end
 end

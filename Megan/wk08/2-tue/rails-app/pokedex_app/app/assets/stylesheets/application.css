@@ -43,3 +43,25 @@ table {
 .view-pokedex {
  margin-top: 50px;
 }
+
+.view-pokedex a {
+  font-size: 25px;
+ }
+
+.add-pokedex-form {
+  text-align: left;
+  width: 20%;
+  margin: 0 auto;
+  background-color:lightgray;
+  padding: 20px;
+  border: 2px solid black;
+}
+
+.add-pokedex-form input{
+  margin: 10px;
+  padding: 5px;
+}
+
+.add-pokedex-form button {
+  float: right;
+}
