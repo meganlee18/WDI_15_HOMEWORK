@@ -1,0 +1,38 @@
+<div class="logo">
+  <%= image_tag("Pokemon_logo.png", size: "500x200") %>
+</div>
+
+<h1>Welcome to Pokedex</h1>
+
+<h2>...save your pokemons here and never fear they get lost again.</h2>
+
+<form action="/create" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>Caught a new Pokemon? Add it to Pokedex!</p>
+  <label for="">Nickname</label>
+  <input type="text" name="name" value="">
+  <label for="">Species</label>
+  <input type="text" name="species" value="">
+  <label for="">Level</label>
+  <input type="text" name="level" value="">
+  <button>Add Pokemon</button>
+</form>
+
+<h2>Pokemon Return Result</h2>
+
+<table>
+  <tr>
+    <th>Species</th>
+    <th>Nickname</th> 
+    <th>Level</th>
+  </tr>
+    <% @pokemon.each do |mon|%>
+  <tr>
+    <td><%= mon.species %></td>
+    <td><%= mon.nickname %></td>
+    <td><%= mon.level %></td>
+  </tr>  
+    <%end%>
+</table>
+
+
