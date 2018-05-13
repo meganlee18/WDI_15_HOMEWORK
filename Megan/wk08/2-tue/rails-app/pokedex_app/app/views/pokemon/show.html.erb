@@ -1,8 +1,8 @@
-<form action="" method="post">
+<form action="/pokemon/" method="post">
+  <input type="hidden" name="_method" value="update">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="hidden" name="_method" value="update">
   <label for="">Nickname</label>
-  <input type="text" name="name" value="<%=%>">
+  <input type="text" name="name" value="">
   <label for="">Species</label>
   <input type="text" name="species" value="">
   <label for="">Level</label>
@@ -11,3 +11,5 @@
   <input type="text" name="pokedex" value="">
   <button>Update</button>
 </form>
+
+<a href="/pokemon">Go back</a>

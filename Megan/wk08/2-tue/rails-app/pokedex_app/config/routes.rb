@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root "pokemon#index" #similar to get "/", to:"pokemon#index"
-  get "/pokemon/", to: "pokemon#home"
   post "/pokemon/create", to: "pokemon#create"
   delete "/pokemon/:id", to: "pokemon#destroy"
   get "/pokemon/:id/edit", to: "pokemon#show"

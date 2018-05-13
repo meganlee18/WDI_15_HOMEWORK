@@ -3,6 +3,10 @@
 
 <h2>...save your pokemons here and never fear they get lost again.</h2>
 
+<%# <% @pokemon && @pokemon.errors.full_messages.each do |message| %>
+<%# <p><%= message</p> %>
+<%# <% end %>
+
 <form action="/pokemon/create" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <p>Caught a new Pokemon? Add it to Pokedex!</p>
@@ -14,14 +18,65 @@
     <label for="">Level</label>
     <input type="text" name="level" value=""><br/>
     <label for="">Pokedex Number</label>
-    <input type="text" name="pokedex" value=""><br/>
-    <button>Add Pokemon</button>
+    <input type="text" name="pokedex" id="pokedex" value=""><br/>
+    <a href="https://www.pokemon.com/us/pokedex/">Find out pokedex number</a>
+    <button class="add-pokemon-btn">Add Pokemon</button>
   </div>
- 
 </form>
 
-<div class="view-pokedex">
-<a href="/pokemon">View Pokedex</a>
-</div>
+<h2>Pokemon Result</h2>
 
+<table>
+  <tr> 
+    <th>Species</th>
+    <th>Nickname</th> 
+    <th>Level</th>
+    <th>Pokedex No</th>
+    <th>Image</th>
+    <th>Actions</th>
+  </tr>
+    <% @pokemon.each do |mon|%>
+  <tr>
+    <td><%= mon.species %></td>
+    <td><%= mon.nickname %></td>
+    <td><%= mon.level %></td>
+    <td><%= mon.pokedex_number %></td>
+        <% mon.id %>
+    <td><%= image_tag("") %></td>
+    <td><a href="/pokemon/<%= mon.id%>/edit">Edit</a>
+
+    <form action="/pokemon/<%=mon.id%>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <button>Delete</button></td>
+    </form>
+
+  </tr>  
+    <%end%>
+    
+</table>
+
+<script>
+
+var addPokemonBtn = document.querySelector(".add-pokemon-btn")
+
+    addPokemonBtn.addEventListener("click", function() {
+      //issue - this will prevent page from reloading and for data to be saved
+      event.preventDefault()
+      console.log(pokedex.value)
+
+      var options = {
+        url: 'http://pokeapi.salestock.net/api/v2/pokemon/' + pokedex.value
+      }
+      var showResults = function(res) {
+        console.log(res.sprites.front_default);
+
+        //Append this image into the table above - at the moment, it's appending to body
+        document.body.style.backgroundImage = "url(" + res.sprites.front_default + ")";
+      }
+      $.ajax(options).done(showResults)
+    });
+
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 
