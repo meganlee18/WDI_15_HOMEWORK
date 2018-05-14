@@ -23,19 +23,18 @@ findSumOfMultiples(10);
 //e.g $ node sumOfMultiples.js 9
 //    $ 23
 
-console.log(process.argv) 
-//It returns as an array - ['node', 'node', '10']
+//console.log(process.argv[2]) 
+//process.argv returns as an array - ['node', 'node', '10']
 
 
 var num = process.argv[2]
 
 var findSumOfMultiples = function (num) {
-
+  
   var sum = 0;
 
-  for (var i = 1; i <= process.argv.length; i++) {
+  for (var i = 1; i <= num; i++) {
     if (i % 3 === 0 || i % 5 === 0) {
-      console.log(i)
       sum = sum + i
     }
   }
