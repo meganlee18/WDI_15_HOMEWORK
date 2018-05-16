@@ -4,6 +4,7 @@ const _ = require('lodash')
 const request = require('request');
 
 const PORT = 3000;
+
 const compliments = [
   "You are beautiful no matter what they say",
   "Wow, you are a sight for sore eyes",
@@ -16,7 +17,7 @@ const compliments = [
   "Thank you for being you"
 ]
 
-const colors = ["#FFBF00", "#0080FF","#01DF3A","#FF0080"]
+const colors = ["#FFBF00","#0080FF","#01DF3A","#FF0080"]
 
 
 app.listen(PORT,() => {
@@ -32,13 +33,15 @@ app.use(express.static('public'))
 app.get('/', (req, res) => {
   const randomCompliments = _.sample(compliments)
   const randomColors = _.sample(colors)
-  res.render("home", {randomCompliments, randomColors})
+  const name = "you"
+  res.render("home", {name, randomCompliments, randomColors})
 })
 
 app.get('/:name', (req, res) => {
   const name = req.params.name;
   const randomCompliments = _.sample(compliments)
-  res.send(`Hey ${name}! ${randomCompliments}!`)
+  const randomColors = _.sample(colors)
+  res.render("home", {name, randomCompliments, randomColors})
 })
 
 
