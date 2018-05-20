@@ -70,26 +70,37 @@ var text = document.querySelector(".text")
       console.log(pokedex.value)
       text.innerHTML = "Saving your pokemon ... just a moment!"
 
-      var options = {
-        url: 'https://pokeapi.co/api/v2/pokemon/' + pokedex.value
-      }
-      var showResults = function(res) {
-        console.log(res.sprites.front_default);
+      var showImage = $.ajax({
+                        url: 'https://pokeapi.co/api/v2/pokemon/' + pokedex.value,
+                    }),
+                saveImage = showImage.then(function(res) {
+                  // .then() returns a new promise
+                  return $.ajax({
+                      url: '/localhost3000/pokemon/',
+                      dataType: 'json',
+                      data: res.pokedex_number //(??not sure)
+                });
+              });
 
-        // //Add another ajax function saving the above to database
-        // var getimage = {
-        //   url: '/localhost3000/pokemon/'
-        // }
-        // var saveImage = function(res.sprites.front_default) {
-          
-        // }
-
-        //Append this image into the table above
+      saveImage.done(function(res) {
+          //how to save to database?
+          console.log(res.sprites.front_default);
           text.innerHTML = "Hurray, pokemon saved!"
-          document.getElementById(pokedex.value).style.backgroundImage = "url(" + res.sprites.front_default + ")";
-      }
-      $.ajax(options).done(showResults)
-    });
+      });
+    })
+
+
+    //   var options = {
+    //     url: 'https://pokeapi.co/api/v2/pokemon/' + pokedex.value
+    //   }
+    //   var showResults = function(res) {
+    //     console.log(res.sprites.front_default);
+
+    //     text.innerHTML = "Hurray, pokemon saved!"
+    //     document.getElementById(pokedex.value).style.backgroundImage = "url(" + res.sprites.front_default + ")";
+    //   }
+    //   $.ajax(options).done(showResults)
+    // });
 
 </script>
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
