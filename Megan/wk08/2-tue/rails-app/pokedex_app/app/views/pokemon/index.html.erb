@@ -7,8 +7,7 @@
 <%# <p><%= message</p> %>
 <%# <% end %>
 
-<form action="/pokemon/create" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<form id="pokemon-creation" action="/pokemon" method="post">
   <p>Caught a new Pokemon? Add it to Pokedex!</p>
   <div class = "add-pokedex-form">
     <label for="">Nickname</label>
@@ -48,7 +47,7 @@
     <td id="<%= mon.pokedex_number %>"></td>
     <td><a href="/pokemon/<%= mon.id%>/edit">Edit</a>
 
-    <form action="/pokemon/<%=mon.id%>" method="post">
+    <form id="" action="/pokemon/<%=mon.id%>" method="post">
       <input type="hidden" name="_method" value="delete">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
       <button>Delete</button></td>
@@ -68,17 +67,27 @@ var text = document.querySelector(".text")
       //issue - this will prevent page from reloading and for data to be saved
       event.preventDefault()
       console.log(pokedex.value)
-      text.innerHTML = "Saving your pokemon ... just a moment!"
+      text.innerHTML = "Saving your pokemon... just a moment!"
 
       var showImage = $.ajax({
-                        url: 'https://pokeapi.co/api/v2/pokemon/' + pokedex.value,
-                    }),
+                      url: 'https://pokeapi.co/api/v2/pokemon/' + pokedex.value,
+                      }),
                 saveImage = showImage.then(function(res) {
-                  // .then() returns a new promise
+                  // goes to another path
                   return $.ajax({
-                      url: '/localhost3000/pokemon/',
+                      headers: {
+                        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                      },
+                      url: 'http://localhost:3000/pokemon',
                       dataType: 'json',
-                      data: res.pokedex_number //(??not sure)
+                      method: 'POST',
+                      data: {
+                        name: $('input[name=name]').val(),
+                        species: $('input[name=species]').val(),
+                        level: $('input[name=level]').val(),
+                        pokedex: $('input[name=pokedex]').val(),
+                        img_url: res.sprites.front_default
+                      }
                 });
               });
 
