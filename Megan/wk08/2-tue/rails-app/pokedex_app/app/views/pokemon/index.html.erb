@@ -42,9 +42,9 @@
     <td><%= mon.species %></td>
     <td><%= mon.nickname %></td>
     <td><%= mon.level %></td>
-    <td><%= mon.pokedex_number %></td>
+    <td><%= mon.pokemon_number %></td>
         <% mon.id %>
-    <td id="<%= mon.pokedex_number %>"></td>
+    <td id="<%= mon.pokemon_number %>"></td>
     <td><a href="/pokemon/<%= mon.id%>/edit">Edit</a>
 
     <form id="" action="/pokemon/<%=mon.id%>" method="post">
@@ -73,7 +73,7 @@ var text = document.querySelector(".text")
                       url: 'https://pokeapi.co/api/v2/pokemon/' + pokedex.value,
                       }),
                 saveImage = showImage.then(function(res) {
-                  // goes to another path
+        
                   return $.ajax({
                       headers: {
                         'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
@@ -85,31 +85,17 @@ var text = document.querySelector(".text")
                         name: $('input[name=name]').val(),
                         species: $('input[name=species]').val(),
                         level: $('input[name=level]').val(),
-                        pokedex: $('input[name=pokedex]').val(),
-                        img_url: res.sprites.front_default
+                        pokemon_number: $('input[name=pokedex]').val(),
+                        image: res.sprites.front_default
                       }
                 });
               });
 
       saveImage.done(function(res) {
-          //how to save to database?
           console.log(res.sprites.front_default);
           text.innerHTML = "Hurray, pokemon saved!"
       });
     })
-
-
-    //   var options = {
-    //     url: 'https://pokeapi.co/api/v2/pokemon/' + pokedex.value
-    //   }
-    //   var showResults = function(res) {
-    //     console.log(res.sprites.front_default);
-
-    //     text.innerHTML = "Hurray, pokemon saved!"
-    //     document.getElementById(pokedex.value).style.backgroundImage = "url(" + res.sprites.front_default + ")";
-    //   }
-    //   $.ajax(options).done(showResults)
-    // });
 
 </script>
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>

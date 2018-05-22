@@ -11,7 +11,7 @@ class PokemonController < ApplicationController
     pokemon.nickname = params[:name]
     pokemon.species = params[:species]
     pokemon.level = params[:level]
-    pokemon.pokedex_number = params[:pokedex]
+    pokemon.pokemon_number = params[:pokedex]
     pokemon.save
     redirect_to "/pokemon"
   end
@@ -34,7 +34,7 @@ class PokemonController < ApplicationController
     pokemon.nickname = params[:name]
     pokemon.species = params[:species]
     pokemon.level = params[:level]
-    pokemon.pokedex_number = params[:pokedex]
+    pokemon.pokemon_number = params[:pokedex]
     pokemon.save
     redirect_to "/pokemon"
   end

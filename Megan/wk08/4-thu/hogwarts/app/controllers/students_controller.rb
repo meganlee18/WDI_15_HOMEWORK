@@ -4,6 +4,7 @@ class StudentsController < ApplicationController
   end
 
   def show
-    @student = student.find(:id)
+    #finding the ids in student table
+    @student = student.find(params[:id])
   end
 end

@@ -18,7 +18,9 @@ const compliments = [
 ]
 
 const colors = ["#FFBF00","#0080FF","#01DF3A","#FF0080"]
-
+ 
+const randomCompliments = _.sample(compliments)
+const randomColors = _.sample(colors)
 
 app.listen(PORT,() => {
 console.log(`listening on ${PORT}`)
@@ -31,9 +33,9 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
+  const name = "you"
   const randomCompliments = _.sample(compliments)
   const randomColors = _.sample(colors)
-  const name = "you"
   res.render("home", {name, randomCompliments, randomColors})
 })
 
