@@ -2,8 +2,16 @@
 // {make: "honda", model: "civic", drive: Function}, where the drive function
 // logs "vroom" to the console
 
+
 function car(make, model, options){
-  return // your code here
+  //local variable
+  var object = {
+    make: make, 
+    model: model, 
+    drive: function(){console.log("vroom!!")}
+   }
+  return object // your code here
+  
 }
 
 let auto = car("honda","civic")

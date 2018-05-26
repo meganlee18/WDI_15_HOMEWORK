@@ -13,13 +13,13 @@ class PokemonController < ApplicationController
     pokemon.level = params[:level]
     pokemon.pokemon_number = params[:pokedex]
     pokemon.save
-    redirect_to "/pokemon"
+    redirect_to "/"
   end
 
   def destroy
     @pokemon = Pokemon.find(params[:id])
     @pokemon.destroy
-    redirect_to "/pokemon"
+    redirect_to "/"
   end
 
   def edit
@@ -36,6 +36,6 @@ class PokemonController < ApplicationController
     pokemon.level = params[:level]
     pokemon.pokemon_number = params[:pokedex]
     pokemon.save
-    redirect_to "/pokemon"
+    redirect_to "/"
   end
 end

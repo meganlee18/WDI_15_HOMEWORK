@@ -10,10 +10,14 @@
 // Use ES6 to create a "cleaner" solution?
 
 "use strict"
+//block of code
+{
+
+ }
 
 //The let statement declares a block scope local variable, 
 //optionally initializing it to a value.
-let callbacks = []
+var callbacks = []
 
 for (let i = 0; i < 10; i++) {
   callbacks.push(function() { console.log(i) })

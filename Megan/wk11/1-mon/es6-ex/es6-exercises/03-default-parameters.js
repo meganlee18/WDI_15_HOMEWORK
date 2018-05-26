@@ -8,8 +8,8 @@ var myRide = {
   model: "Model T",
   year: 1959,
   location: "the Office",
-  driveTo: function ( place ) {
-    this.location = place || "Home"
+  driveTo: function ( place="Home" ) {
+    this.location = place
   }
 }
 
@@ -20,23 +20,3 @@ myRide.location // "Walmart"
 
 myRide.driveTo()
 myRide.location // "Home"
-
-
-
-// function myRide ({
-//   make = "Ford",
-//   model = "Model T",
-//   year = 1959,
-//   location = "the Office",
-//   driveTo = {
-//     this.location = "Home"
-//   }
-// }
-
-
-// function createElement ({
-//   content = 'Very default',
-//   classNames = ['module-text', 'special']
-// } = {}) {
-//   // function body
-// }
