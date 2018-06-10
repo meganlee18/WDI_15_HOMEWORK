@@ -9,7 +9,7 @@ export default class PasswordInput extends React.Component {
     this.state = { 
       password: {
         value: '',
-        capitalLetters: false
+        capitalLetters: false,
       } 
     }
   }
@@ -21,11 +21,23 @@ export default class PasswordInput extends React.Component {
     })
   }
 
+  lowerLetters(password) {
+    return password.split('').some(function(letter){
+      return letter.toLowerCase() === letter
+    })
+  }
+
+  hasNumber(password) {
+    return password.split('').some(function(letter){
+      return letter.toInteger() === letter
+    })
+  }
+
   handleChange(event) {
     this.setState({
       password: {
         value: event.target.value,
-        capitalLetters: this.capitalLetters(event.target.value)
+        capitalLetters: this.capitalLetters(event.target.value),
       }
     })
   }

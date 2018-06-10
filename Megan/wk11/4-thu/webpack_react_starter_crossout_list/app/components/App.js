@@ -7,12 +7,23 @@ export default class App extends React.Component {
 
   constructor(props) {
     super(props)
+    // this.handleLike = this.handleLike.bind(this)
+    //this.handleAddTask = this.handleAddTask.bind(this)
+    //this.handleInputChange = this.handleInputChange.bind(this)
+    // this.handleDelete = this.handleDelete.bind(this)
     this.state = {
+      //likeCount: 7
       tasks: ['have breakfast','have brunch','have a snack'],
       newTaskValue: '',
       cross_out: true
     }
   }
+
+  // handleLike(event){
+  //   this.setState({
+  //     likeCount: this.state.likeCount + 1
+  //   })
+  // }
 
   handleAddTask = (event) => {
     //console.log("add class")
@@ -45,27 +56,33 @@ export default class App extends React.Component {
     }) 
   }
 
-  handleCrossOut = (selectedIndex) => {
+  handleCrossOut = (event) => {
+    console.log(event.target)
+    //event.target.style.textDecoration = "line-through"
 
-    // //make a copy of the array - a separate array
-    // const copiedTasks = this.state.tasks.slice(0)
-    // // another way to make copy:
-    // // const copiedTasks = [...this.state.tasks]
+    this.setState(prevState => ({
+      cross_out: !prevState.cross_out
+    }));
 
-    // //flip the array
-    // copiedTasks[selectedIndex].completed = !this.state.tasks[selectedIndex].completed
+  }
 
-    this.setState((prevState, props) => {
-      const updatedTasks = prevState.tasks.map((task, index) => {
+  render() {
+    // var { likeCount } = this.state
+    // var paragraph = <p>yay</p> //p('yay')
+    // var list=["mistyrose","purple","plum"] //map transform
+    // var list=<p>mistyrose</p><p>purple</p><p>plum</p>
+    const {tasks} = this.state
 
-        if (selectedIndex === index) {
-          return {...task,completed: !task.completed}
-        }else{
-          return task
-      }
-    });
+    let strikeThrough = this.state.cross_out ? true : false
 
     return <div>
+      {/* <p>{list.map(elem => <p>{elem}</p>)}</p>
+      <LikeButton />
+      <DumbLikeButton 
+        onLike={this.handleLike} 
+        count={likeCount} /> */}
+
+      {/* With form, there is no need to add onClick to button */}
 
       <form>
       <input onChange={this.handleInputChange} type="text" />
@@ -74,7 +91,7 @@ export default class App extends React.Component {
 
       <ul>
         {tasks.map((task,index) => { 
-          return <li onClick={() => this.handleCrossOut} key={index}> 
+          return <li style={{textDecoration: strikeThrough}} onClick={this.handleCrossOut} key={index}>{task}{this.state.cross_out ? true : false} 
             <button onClick={() => this.handleDelete(index)}>X</button>
           </li>
         })}
